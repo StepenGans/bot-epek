@@ -1,2 +1,0 @@
-# bot-epek
-Yahahaha wahyucc
