@@ -70,11 +70,11 @@ fs.existsSync('./session.json') && conn.loadAuthInfo('./session.json')
 //conn.connectOptions.agent = ProxyAgent ('http://1.0.180.120:8080')
 conn.connect();
 
-conn.on('user-presence-update', json => console.log(json.id + ' presence is => ' + json.type)) || console.log('Zxbin/Galang')
+conn.on('user-presence-update', json => console.log(json.id + ' presence is => ' + json.type)) || console.log('StevenTs')
 conn.on('message-status-update', json =>
 {
    const participant = json.participant ? ' (' + json.participant + ')' : '' // participant exists when the message is from a group
-   console.log(`[ ${moment().format("HH:mm:ss")} ] => bot by Zxbin`)
+   console.log(`[ ${moment().format("HH:mm:ss")} ] => bot by StevenTs`)
 })
 
 conn.on('message-new', async(m) =>
@@ -282,7 +282,7 @@ if (text.includes("_sholat")){
 })
 }
 
-if (text == '_bantuan'){
+if (text == '_epek'){
 const corohelp = await get.get('https://covid19.mathdro.id/api/countries/id').json()
 var date = new Date();
 var tahun = date.getFullYear();
@@ -359,7 +359,7 @@ conn.sendMessage(id, donasi.donasi(id, BotName, corohelp, tampilTanggal, tampilW
 }
 
 
-else if (text == '_info'){
+else if (text == '_infoCreator'){
 const corohelp = await get.get('https://covid19.mathdro.id/api/countries/id').json()
 var date = new Date();
 var tahun = date.getFullYear();
