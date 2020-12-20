@@ -256,6 +256,19 @@ axios.get(`https://arugaz.herokuapp.com/api/stalk?username=${teks}`).then((res) 
    })
  }
 
+	if (quotedMessage == '_toimg' && content.includes('stickerMessage')) {
+					const media = await conn.downloadAndSaveMediaMessage(m.message.extendedTextMessage.contextInfo)
+					const random = `${Math.floor(Math.random() * 10000)}.png`
+					const
+                       {
+						exec
+						} = require ("child_process");
+exec(`ffmpeg -i ${media} ${random}`, (error, stdout, stderr) => {
+						let buffer = fs.readFileSync(random)
+						conn.sendMessage(id, buffer, MessageType.image, {quoted: m, caption: 'Tuh Gan'})
+					});
+				}
+	
 if (text.includes("_spamcall")){
 const teks = text.replace(/_spamcall /, "")
 axios.get(`https://arugaz.herokuapp.com/api/spamcall?no=${teks}`).then((res) => {
